@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 
 
 function AddMovies(props) {
+  const movieState = {
+    title: "",
+    watched : false
+  }
   //set up state for user input
-  const [add, setAdd] = useState("");
+  const [add, setAdd] = useState(movieState);
   //event handler for user input to set state of input
   const handleInput = (event) => {
     setAdd(event.target.value);
@@ -12,6 +16,7 @@ function AddMovies(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.handleAddInput(add);
+    setAdd("");
   }
 
   return (
@@ -20,7 +25,7 @@ function AddMovies(props) {
         name="query"
         placeholder="Add movie title here"
         type="text"
-        value={add}
+        value={add.title}
         onChange={handleInput}
       />
       <button type="submit"><strong>Add</strong></button>

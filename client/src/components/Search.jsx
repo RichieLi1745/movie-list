@@ -6,12 +6,14 @@ function Search(props) {
   const[input, setInput] = useState("");
   //event handler for user input to set state of input
   const handleInput = (event) => {
+
     setInput(event.target.value);
   }
   //event handler for submit button
   const handleSubmit = (event) => {
     event.preventDefault();
     props.handleSearchInput(input);
+    setInput("");
   }
 
   return (
